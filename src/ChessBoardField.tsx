@@ -5,6 +5,7 @@ export type Position = [number, number];
 function ChessBoardField(props: any) {
   return (
     <div
+      id={`field${props.x}${props.y}`}
       className="box"
       onClick={() => {
         props.handleClick([props.x, props.y] as Position);
