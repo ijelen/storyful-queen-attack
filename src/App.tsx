@@ -2,6 +2,7 @@ import React, { useState, useRef } from "react";
 import "./App.css";
 import ChessBoardField from "./ChessBoardField";
 import { Position } from "./ChessBoardField";
+import { canAttack } from "./utils";
 
 function App() {
   const [positionWhite, setPositionWhite] = useState<Position>([0, 0]);
@@ -49,19 +50,6 @@ function App() {
     }
   };
 
-  const canAttack = (): boolean => {
-    if (
-      positionWhite[0] === positionBlack[0] ||
-      positionWhite[1] === positionBlack[1] ||
-      positionWhite[0] - positionWhite[1] ===
-        positionBlack[0] - positionBlack[1] ||
-      positionWhite[0] + positionWhite[1] ===
-        positionBlack[0] + positionBlack[1]
-    ) {
-      return true;
-    } else return false;
-  };
-
   const UIletters = ["A", "B", "C", "D", "E", "F", "G", "H"];
 
   return (
@@ -93,6 +81,7 @@ function App() {
       <div className="ui divider" style={{ marginBottom: "3rem" }}></div>
       <div className="ui grid container">
         <div className="sixteen wide column">
+          {/* Chessboard */}
           {/* https://codepen.io/jeansarlon/pen/WpZNda */}
           <div className="wrapper">
             <div className="top">
@@ -117,7 +106,7 @@ function App() {
           </div>
         </div>
         <div className="sixteen wide column" style={{ textAlign: "center" }}>
-          {canAttack() && positionWhite[0] !== 0 ? (
+          {canAttack(positionWhite, positionBlack) && positionWhite[0] !== 0 ? (
             <h3>
               <i className="thumbs up outline icon blue"></i>Can attack
             </h3>
