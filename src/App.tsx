@@ -108,11 +108,13 @@ function App() {
         <div className="sixteen wide column" style={{ textAlign: "center" }}>
           {canAttack(positionWhite, positionBlack) && positionWhite[0] !== 0 ? (
             <h3>
-              <i className="thumbs up outline icon blue"></i>Can attack
+              <i className="thumbs up outline icon blue"></i>
+              <span>Can attack.</span>
             </h3>
           ) : (
             <h3>
-              <i className="thumbs down outline icon red"></i>Can't attack
+              <i className="thumbs down outline icon red"></i>
+              <span>Can't attack.</span>
             </h3>
           )}
         </div>
