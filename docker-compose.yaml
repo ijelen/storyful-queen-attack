@@ -1,0 +1,9 @@
+version: '3.8'
+services:
+  bookstore:
+    build: .
+    container_name: Storyful_Code_Challenge_Queen_Attack
+    ports:
+      - '3000:3000'
+    stdin_open: true
+    tty: true
