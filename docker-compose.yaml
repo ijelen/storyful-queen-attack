@@ -1,6 +1,6 @@
 version: '3.8'
 services:
-  bookstore:
+  web:
     build: .
     container_name: Storyful_Code_Challenge_Queen_Attack
     ports:
